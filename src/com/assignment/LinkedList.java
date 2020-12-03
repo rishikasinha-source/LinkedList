@@ -21,6 +21,19 @@ public class LinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
+	
+	public void append(INode newNode)
+	{
+		if(head==null)
+			this.head=newNode;
+		if(tail==null)
+			this.tail=newNode;
+		else {
+			this.tail.setNext(newNode);
+			this.tail=newNode;
+			
+		}
+	}
 
 	public void printMyNodes() {
 		StringBuffer myNode = new StringBuffer("My Nodes");
@@ -40,13 +53,13 @@ public class LinkedList<K> {
 		System.out.println("Welcome to Linked List Program");
 		LinkedList linkedList=new LinkedList();
 		
-		MyNode<Integer> myFirstNode=new MyNode<Integer>(70);
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
 		MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
-		MyNode<Integer> myThirdNode=new MyNode<	Integer>(56);	
+		MyNode<Integer> myThirdNode=new MyNode<	Integer>(70);	
 		
-		linkedList.add(myFirstNode);
-		linkedList.add(mySecondNode);
-		linkedList.add(myThirdNode);
+		linkedList.append(myFirstNode);
+		linkedList.append(mySecondNode);
+		linkedList.append(myThirdNode);
 		linkedList.printMyNodes();
 
 	}
