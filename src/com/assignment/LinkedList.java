@@ -22,6 +22,20 @@ public class LinkedList<K> {
 		}
 	}
 	
+	public void printMyNodes() {
+		StringBuffer myNode = new StringBuffer("My Nodes");
+		INode tempNode = head;
+		while (tempNode.getNext() != null) {
+			myNode.append(tempNode.getKey());
+			if (!tempNode.equals(tail))
+				myNode.append("->");
+			tempNode = tempNode.getNext();
+		}
+		myNode.append(tempNode.getKey());
+		System.out.println(myNode);
+	}
+
+	
 	
 	public void append(INode newNode)
 	{
@@ -37,9 +51,12 @@ public class LinkedList<K> {
 	}
 	
 	private INode setNext(INode newNode) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
 	
+
 	
 	public void insert(INode myNode,INode newNode)
 	{
@@ -55,19 +72,6 @@ public class LinkedList<K> {
 		return tempNode;
 	}
 	
-	public void printMyNodes() {
-		StringBuffer myNode = new StringBuffer("My Nodes");
-		INode tempNode = head;
-		while (tempNode.getNext() != null) {
-			myNode.append(tempNode.getKey());
-			if (!tempNode.equals(tail))
-				myNode.append("->");
-			tempNode = tempNode.getNext();
-		}
-		myNode.append(tempNode.getKey());
-		System.out.println(myNode);
-	}
-
 	public INode popLast() {
 		INode tempNode = head;
 		while (!tempNode.getNext().equals(tail)) {
@@ -79,17 +83,14 @@ public class LinkedList<K> {
 	}
 	
 	public INode Search(K Key) {
-		int flag = 0;
 		INode tempNode = head;
 		while (tempNode != null) {
 			if (tempNode.getKey() == Key) {
 				System.out.println("Key is present");
-				flag = 1;
-				break;
+				return tempNode;
 			}
 			tempNode = tempNode.getNext();
 		}
-		if (flag == 0)
 			System.out.println("Key is not present");
 		return null;
 
@@ -103,14 +104,15 @@ public class LinkedList<K> {
 		
 		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
 		MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
-		MyNode<Integer> myThirdNode=new MyNode<	Integer>(70);	
+		MyNode<Integer> myThirdNode=new MyNode<Integer>(40);
+		MyNode<Integer> myFourthNode=new MyNode<Integer>(70);	
 		
 		linkedList.append(myFirstNode);
-		linkedList.append(myThirdNode);
+		linkedList.append(myFourthNode);
 		linkedList.insert(myFirstNode,mySecondNode);
-		linkedList.popLast();
+		INode tempNode=linkedList.Search(30);
+		linkedList.insert(tempNode,myThirdNode);
 		linkedList.printMyNodes();
-		linkedList.Search(30);
 
 	}
 
