@@ -22,6 +22,7 @@ public class LinkedList<K> {
 		}
 	}
 	
+	
 	public void append(INode newNode)
 	{
 		if(head==null)
@@ -34,7 +35,19 @@ public class LinkedList<K> {
 			
 		}
 	}
-
+	
+	private INode setNext(INode newNode) {
+		return null;
+	}
+	
+	
+	public void insert(INode myNode,INode newNode)
+	{
+		INode tempNode=myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+	
 	public void printMyNodes() {
 		StringBuffer myNode = new StringBuffer("My Nodes");
 		INode tempNode = head;
@@ -48,6 +61,8 @@ public class LinkedList<K> {
 		System.out.println(myNode);
 	}
 
+	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Linked List Program");
@@ -58,8 +73,8 @@ public class LinkedList<K> {
 		MyNode<Integer> myThirdNode=new MyNode<	Integer>(70);	
 		
 		linkedList.append(myFirstNode);
-		linkedList.append(mySecondNode);
 		linkedList.append(myThirdNode);
+		linkedList.insert(myFirstNode,mySecondNode);
 		linkedList.printMyNodes();
 
 	}
