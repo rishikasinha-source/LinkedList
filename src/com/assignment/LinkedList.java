@@ -68,6 +68,15 @@ public class LinkedList<K> {
 		System.out.println(myNode);
 	}
 
+	public INode popLast() {
+		INode tempNode = head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		 tempNode= tempNode.getNext();
+		return tempNode;
+	}
 	
 
 	public static void main(String[] args) {
@@ -82,7 +91,7 @@ public class LinkedList<K> {
 		linkedList.append(myFirstNode);
 		linkedList.append(myThirdNode);
 		linkedList.insert(myFirstNode,mySecondNode);
-		linkedList.pop();
+		linkedList.popLast();
 		linkedList.printMyNodes();
 
 	}
