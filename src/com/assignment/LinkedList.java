@@ -78,6 +78,23 @@ public class LinkedList<K> {
 		return tempNode;
 	}
 	
+	public INode Search(K Key) {
+		int flag = 0;
+		INode tempNode = head;
+		while (tempNode != null) {
+			if (tempNode.getKey() == Key) {
+				System.out.println("Key is present");
+				flag = 1;
+				break;
+			}
+			tempNode = tempNode.getNext();
+		}
+		if (flag == 0)
+			System.out.println("Key is not present");
+		return null;
+
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -93,6 +110,7 @@ public class LinkedList<K> {
 		linkedList.insert(myFirstNode,mySecondNode);
 		linkedList.popLast();
 		linkedList.printMyNodes();
+		linkedList.Search(30);
 
 	}
 
